@@ -1,0 +1,16 @@
+
+
+
+ @media only screen and (max-width: 440px){
+ h3{ margin-top:44px!important;}
+ }
+
+ h1{
+     color: blue;
+ }
+
+ input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+
+.right { text-align: right }

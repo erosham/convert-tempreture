@@ -1,0 +1,65 @@
+
+
+  <div class="container">
+    <h1>Temperature Conversion Calculator</h1>
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <div class="row">
+        <div class="col-xs-1 col-sm-1 col-md-1">
+          From:
+        </div>
+        <div class="col-xs-5 col-sm-3 col-md-2">
+            <select 
+              id="selectFrom" 
+              class="form-control" 
+              [ngModel]= "fromSlectValue" 
+              (change)="changeFrom($event)"
+              name="selectFrom">
+                <option *ngFor="let item of selectTempList">{{item}}</option>
+            </select>
+        </div>
+        <div class="col-xs-5 col-sm-4 col-md-3">
+            <input 
+            type="text" 
+            id="tempFrom" 
+            class="form-control right" 
+            ngModel 
+            name="tempFrom" 
+            required
+            (keypress)="validateNumber($event)">
+        </div>
+      </div>
+      <br>
+      <div class="row">        
+        <div class="col-xs-1 col-sm-1 col-md-1">
+          To:
+        </div>
+        <div class="col-xs-5 col-sm-3 col-md-2">
+            <select 
+            id="selectTo" 
+            class="form-control" 
+            [ngModel]="toSlectValue" 
+            name="selectTo">
+                <option *ngFor="let item of toList">{{item}}</option>
+              </select>
+        </div>
+        <div class="col-xs-5 col-sm-4 col-md-3">
+            <input 
+            type="text" 
+            id="tempTo" 
+            class="form-control right" 
+            [ngModel] = "convertedTemp"
+            name="tempTo"
+            disabled
+            >
+        </div>        
+      </div>
+      <br>
+      <button 
+      class="btn btn-primary" type="submit" [disabled]="!f.valid">Calculate</button>
+    </form>
+  </div>
+  
+
+
+
+<router-outlet></router-outlet>
